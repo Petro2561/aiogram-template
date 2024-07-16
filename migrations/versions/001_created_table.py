@@ -23,7 +23,6 @@ def upgrade() -> None:
         "users",
         sa.Column("id", sa.BigInteger(), nullable=False),
         sa.Column("name", sa.String(), nullable=False),
-        sa.Column("locale", sa.String(length=2), nullable=False),
         sa.Column("notifications", sa.Boolean(), nullable=False),
         sa.Column(
             "created_at",

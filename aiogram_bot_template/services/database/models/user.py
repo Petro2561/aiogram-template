@@ -15,7 +15,6 @@ class DBUser(Base, TimestampMixin):
 
     id: Mapped[Int64] = mapped_column(primary_key=True, nullable=False)
     name: Mapped[str] = mapped_column(nullable=False)
-    locale: Mapped[str] = mapped_column(String(length=2), nullable=False)
     notifications: Mapped[bool] = mapped_column(default=False, nullable=False)
 
     @property
@@ -27,11 +26,10 @@ class DBUser(Base, TimestampMixin):
         return html.link(value=self.name, link=self.url)
 
     @classmethod
-    def from_aiogram(cls, user: User, locale: str, chat: Chat) -> Self:
+    def from_aiogram(cls, user: User, chat: Chat) -> Self:
         return cls(
             id=user.id,
             name=user.full_name,
-            locale=locale,
             notifications=chat.type == ChatType.PRIVATE,
         )
 

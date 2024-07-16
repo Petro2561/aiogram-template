@@ -9,7 +9,9 @@ from ....exceptions import BotError
 
 router: Final[Router] = Router(name=__name__)
 
+ERROR_MESSAGE = 'Что-то пошло не так'
+
 
 @router.error(ExceptionTypeFilter(BotError), F.update.message)
-async def handle_some_error(error: ErrorEvent, i18n: I18nContext) -> Any:
-    await error.update.message.answer(text=i18n.messages.something_went_wrong())
+async def handle_some_error(error: ErrorEvent) -> Any:
+    await error.update.message.answer(text=ERROR_MESSAGE)

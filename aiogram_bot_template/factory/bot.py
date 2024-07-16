@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from aiogram import Bot
+from aiogram.client.bot import DefaultBotProperties
 from aiogram.client.session.aiohttp import AiohttpSession
 from aiogram.enums import ParseMode
 
@@ -17,6 +18,6 @@ def create_bot(config: AppConfig) -> Bot:
     session.middleware(RetryRequestMiddleware())
     return Bot(
         token=config.common.bot_token.get_secret_value(),
-        parse_mode=ParseMode.HTML,
+        default=DefaultBotProperties(parse_mode=ParseMode.HTML),
         session=session,
     )

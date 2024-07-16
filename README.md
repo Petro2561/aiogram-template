@@ -36,11 +36,6 @@
     make migrate
 
 
-### Update translations
-1. Parse new used localization keys to update translations files
-   (`make i18n locale=TRANSLATION_LOCALE`)
-2. Write new translations in `.ftl` files by `translations/TRANSLATION_LOCALE`
-3. Restart the bot
 
 ## Used technologies:
 - [Aiogram 3.x](https://github.com/aiogram/aiogram) (Telegram bot framework)
