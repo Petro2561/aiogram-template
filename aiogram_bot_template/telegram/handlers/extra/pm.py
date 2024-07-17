@@ -4,7 +4,8 @@ from typing import TYPE_CHECKING, Any, Final
 
 from aiogram import F, Router
 from aiogram.enums import ChatType
-from aiogram.filters import JOIN_TRANSITION, LEAVE_TRANSITION, ChatMemberUpdatedFilter
+from aiogram.filters import (JOIN_TRANSITION, LEAVE_TRANSITION,
+                             ChatMemberUpdatedFilter)
 from aiogram.types import ChatMemberUpdated
 
 if TYPE_CHECKING:

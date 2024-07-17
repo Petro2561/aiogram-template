@@ -13,7 +13,6 @@ repository = "https://github.com/wakaree/aiogram_bot_template"
 [tool.poetry.dependencies]
 python = "^3.11"
 aiogram = "^3.4.1"
-aiogram_i18n = "^1.3.4"
 aiohttp = "^3.9.3"
 alembic = "^1.13.1"
 asyncpg = "^0.29.0"
@@ -24,6 +23,7 @@ pydantic = "^2.5.3"
 pydantic_settings = "^2.1.0"
 fluent_runtime = "^0.4.0"
 greenlet = "^3.0.3"
+dishka = "^1.2.0"
 
 [tool.poetry.group.dev.dependencies]
 libcst = "^1.2.0"

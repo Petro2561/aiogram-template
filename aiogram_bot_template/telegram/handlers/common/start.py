@@ -16,4 +16,4 @@ START_MESSAGE = 'Привет'
 
 @router.message(CommandStart())
 async def start_command(message: Message, user: DBUser) -> Any:
-    return message.answer(text=START_MESSAGE)
+    await message.answer(text=f'{START_MESSAGE}, {user.name}!')    

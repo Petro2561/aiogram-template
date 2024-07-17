@@ -3,7 +3,6 @@ from typing import Any, Final
 from aiogram import F, Router
 from aiogram.filters import ExceptionTypeFilter
 from aiogram.types import ErrorEvent
-from aiogram_i18n import I18nContext
 
 from ....exceptions import BotError
 
