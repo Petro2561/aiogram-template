@@ -1,10 +1,9 @@
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any, Awaitable, Callable, Optional, cast
+from typing import TYPE_CHECKING, Any, Awaitable, Callable, Optional
 
 from aiogram import BaseMiddleware
 from aiogram.types import Chat, TelegramObject, User
-from aiogram_i18n import I18nMiddleware
 
 from ...services.database import DBUser
 from ...utils.loggers import database as logger
@@ -30,15 +29,9 @@ class UserMiddleware(BaseMiddleware):
         repository: Repository = data["repository"]
         user: Optional[DBUser] = await repository.users.get(user_id=aiogram_user.id)
         if user is None:
-            i18n: I18nMiddleware = data["i18n_middleware"]
             uow: UoW = data["uow"]
             user = DBUser.from_aiogram(
                 user=aiogram_user,
-                locale=(
-                    aiogram_user.language_code
-                    if aiogram_user.language_code in i18n.core.available_locales
-                    else cast(str, i18n.core.default_locale)
-                ),
                 chat=chat,
             )
             await uow.commit(user)

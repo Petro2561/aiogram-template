@@ -16,14 +16,6 @@ reformat:
 	@poetry run black $(project_dir)
 	@poetry run ruff check $(project_dir) --fix
 
-# Update translations
-.PHONY: i18n
-i18n:
-	poetry run i18n multiple-extract \
-		--input-paths $(bot_dir) \
-		--output-dir $(translations_dir) \
-		-k i18n -k L --locales $(locale) \
-		--create-missing-dirs
 
 # Make database migration
 .PHONY: migration
